@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Herz skin Meta広告週次レポート</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #3e3e3b;
+      --deep: #4a4a45;
+      --muted: #777871;
+      --line: #e2e3dc;
+      --paper: #f8f8f5;
+      --panel: rgba(255, 255, 255, 0.78);
+      --sage: #d2d7b5;
+      --sage-dark: #7d8466;
+      --moon: #eaf3fa;
+      --ominaeshi: #f5f3a5;
+      --usuran: #f7f5e8;
+      --mist: #f2f3ed;
+      --shadow: 0 22px 54px rgba(76, 78, 70, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Nimbus Sans", "Helvetica Neue", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      letter-spacing: 0;
+    }
+
+    header {
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: minmax(340px, 0.78fr) minmax(420px, 1.22fr);
+      align-items: stretch;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(90deg, rgba(248, 248, 245, 0.98), rgba(248, 248, 245, 0.74) 46%, rgba(248, 248, 245, 0.24) 78%),
+        url("assets/meta_creatives/active/0515_02_90sample1_verified.jpg") center right 10% / auto 94% no-repeat,
+        #f8f8f5;
+      position: relative;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--sage) 54%, rgba(210, 215, 181, 0.22));
+    }
+
+    .hero-copy {
+      padding: clamp(28px, 5vw, 68px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .kicker {
+      color: var(--sage-dark);
+      font-family: "EB Garamond", serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 680px;
+      margin: 0;
+      font-size: clamp(34px, 5.2vw, 68px);
+      line-height: 1.18;
+      font-family: "EB Garamond", "Yu Gothic", YuGothic, sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+    }
+
+    .subtitle {
+      max-width: 640px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(14px, 1.8vw, 17px);
+      line-height: 2.1;
+      font-weight: 300;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .chip {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border: 1px solid rgba(122, 138, 92, 0.28);
+      background: rgba(255, 255, 255, 0.62);
+      color: #4e5f45;
+      font-family: "Nimbus Sans", "Helvetica Neue", "Yu Gothic", YuGothic, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 56px;
+    }
+
+    section {
+      padding: 34px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    section:last-child {
+      border-bottom: 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(22px, 3vw, 34px);
+      line-height: 1.35;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+    }
+
+    .note {
+      max-width: 620px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 2;
+      font-weight: 300;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(150px, 1fr));
+      gap: 12px;
+    }
+
+    .metric {
+      min-height: 138px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+    }
+
+    .metric span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-family: "Nimbus Sans", "Helvetica Neue", "Yu Gothic", YuGothic, sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+    }
+
+    .metric strong {
+      display: block;
+      margin-top: 14px;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.08;
+      color: var(--deep);
+      font-family: "EB Garamond", "Yu Gothic", YuGothic, sans-serif;
+      font-weight: 500;
+    }
+
+    .metric small {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(340px, 1.1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+    }
+
+    .panel h3 {
+      margin: 0;
+      padding: 17px 18px;
+      border-bottom: 1px solid var(--line);
+      font-size: 18px;
+    }
+
+    .adset-list {
+      display: grid;
+      gap: 12px;
+      padding: 16px;
+    }
+
+    .adset {
+      display: grid;
+      gap: 10px;
+    }
+
+    .adset-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .track {
+      height: 10px;
+      overflow: hidden;
+      background: #e8efeb;
+    }
+
+    .bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--sage-dark), var(--sage));
+    }
+
+    .bar.weak {
+      background: linear-gradient(90deg, var(--sage), var(--ominaeshi));
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 13px;
+    }
+
+    th,
+    td {
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--line);
+      text-align: right;
+      vertical-align: middle;
+    }
+
+    th:first-child,
+    td:first-child,
+    th:nth-child(2),
+    td:nth-child(2) {
+      text-align: left;
+    }
+
+    th {
+      color: var(--muted);
+      font-size: 11px;
+      font-family: "Nimbus Sans", "Helvetica Neue", "Yu Gothic", YuGothic, sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      background: var(--mist);
+    }
+
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .status {
+      display: inline-flex;
+      justify-content: center;
+      min-width: 84px;
+      padding: 5px 8px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .status.on {
+      color: var(--sage-dark);
+      border-color: rgba(122, 138, 92, 0.34);
+      background: rgba(210, 215, 181, 0.18);
+    }
+
+    .creative-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .creative-card {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.76);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .creative-card img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      display: block;
+      background: #eef1e9;
+    }
+
+    .creative-card .creative-body {
+      padding: 14px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .creative-card b {
+      color: var(--deep);
+      font-size: 14px;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    .asset-id {
+      width: fit-content;
+      padding: 4px 8px;
+      border: 1px solid rgba(125, 132, 102, 0.34);
+      background: rgba(210, 215, 181, 0.22);
+      color: var(--deep);
+      font-family: "EB Garamond", "Yu Gothic", YuGothic, sans-serif;
+      font-size: 12px;
+      line-height: 1.2;
+      letter-spacing: 0.03em;
+    }
+
+    .creative-card span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .creative-card strong {
+      color: var(--sage-dark);
+      font-family: "EB Garamond", "Yu Gothic", YuGothic, sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    .insights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .insight {
+      min-height: 188px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .insight b {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--green);
+      font-size: 14px;
+    }
+
+    .insight p {
+      margin: 0;
+      color: #3a4944;
+      font-size: 14px;
+      line-height: 2;
+      font-weight: 300;
+    }
+
+    .source {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1080px) {
+      header {
+        min-height: 86vh;
+        grid-template-columns: 1fr;
+        background:
+          linear-gradient(180deg, rgba(248, 248, 245, 0.98) 0%, rgba(248, 248, 245, 0.76) 50%, rgba(248, 248, 245, 0.18)),
+          url("assets/meta_creatives/active/0515_02_90sample1_verified.jpg") center bottom / min(82vw, 420px) auto no-repeat,
+          #f8f8f5;
+      }
+
+      .hero-copy {
+        justify-content: flex-start;
+        padding: 30px 22px 280px;
+      }
+
+      .metrics,
+      .split,
+      .insights,
+      .creative-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      table {
+        min-width: 780px;
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+        border-bottom: 1px solid var(--line);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hero-copy">
+      <div class="kicker">Meta広告週次レポート / 2026.05.15 - 2026.05.22</div>
+      <h1>Herz skin Meta広告週次レポート</h1>
+      <p class="subtitle">
+        対象キャンペーンは「目黒様_SERUM WATER INTENSE 90 SAMPLE」。Meta管理画面から取得した広告セット・広告別の期間集計をもとに、次週判断に必要な要点だけを整理しています。
+      </p>
+      <div class="hero-meta">
+        <span class="chip">対象: 5/15-5/22</span>
+        <span class="chip">購入: 120件</span>
+        <span class="chip">CPA: ¥3,599</span>
+        <span class="chip">広告: 23本</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="section-head">
+        <h2>全体サマリー</h2>
+        <p class="note">通知実装前の期間はMeta管理画面のCSVを正としています。通知実装後はスプレッドシートの「Meta数値ログ」に15分通知を追記し、日次・週次集計へ接続します。</p>
+      </div>
+      <div class="metrics">
+        <div class="metric"><span>消化額</span><strong>¥431,899</strong><small>5/15-5/22 合計</small></div>
+        <div class="metric"><span>購入</span><strong>120</strong><small>Meta購入イベント</small></div>
+        <div class="metric"><span>CPA</span><strong>¥3,599</strong><small>消化額 ÷ 購入</small></div>
+        <div class="metric"><span>インプレッション</span><strong>257,033</strong><small>CPM 約¥1,680</small></div>
+        <div class="metric"><span>リーチ</span><strong>87,921</strong><small>平均頻度 約2.92</small></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>広告セット別</h2>
+        <p class="note">0506_1 が購入件数・効率ともに主力。0516_フルボ酸静止画はテスト価値はあるものの、全体ではCPAが重くなっています。</p>
+      </div>
+      <div class="split">
+        <div class="panel">
+          <h3>購入構成</h3>
+          <div class="adset-list">
+            <div class="adset">
+              <div class="adset-top"><span>0506_1</span><span>100件 / CPA ¥3,499</span></div>
+              <div class="track"><div class="bar" style="width: 83.3%;"></div></div>
+            </div>
+            <div class="adset">
+              <div class="adset-top"><span>0516_フルボ酸静止画</span><span>20件 / CPA ¥4,099</span></div>
+              <div class="track"><div class="bar weak" style="width: 16.7%;"></div></div>
+            </div>
+            <div class="adset">
+              <div class="adset-top"><span>0523_UGC風 / カルーセル</span><span>対象期間内 0件</span></div>
+              <div class="track"><div class="bar weak" style="width: 0%;"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="panel table-wrap">
+          <h3>広告セット実績</h3>
+          <table>
+            <thead>
+              <tr><th>広告セット</th><th>配信</th><th>消化額</th><th>表示</th><th>購入</th><th>CPA</th><th>ROAS</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>0506_1</td><td><span class="status on">active</span></td><td>¥349,928</td><td>215,947</td><td>100</td><td>¥3,499</td><td>0.137</td></tr>
+              <tr><td>0516_フルボ酸静止画</td><td><span class="status">inactive</span></td><td>¥81,971</td><td>41,086</td><td>20</td><td>¥4,099</td><td>0.127</td></tr>
+              <tr><td>0523_UGC風</td><td><span class="status on">active</span></td><td>¥0</td><td>0</td><td>0</td><td>-</td><td>-</td></tr>
+              <tr><td>0523_カルーセル</td><td><span class="status on">active</span></td><td>¥0</td><td>0</td><td>0</td><td>-</td><td>-</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>日別推移</h2>
+        <p class="note">Meta管理画面で「日」内訳をかけて取得。5/21が購入28件で期間中の山、5/17は購入7件で谷。5/22は消化が高い一方でCPAが重くなっています。</p>
+      </div>
+      <div class="panel table-wrap">
+        <table>
+          <thead>
+            <tr><th>日付</th><th>消化額</th><th>表示</th><th>リーチ</th><th>購入</th><th>CPA</th><th>日別メモ</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>5/15</td><td>¥24,769</td><td>12,838</td><td>8,402</td><td>9</td><td>¥2,752</td><td>開始初日、効率良好</td></tr>
+            <tr><td>5/16</td><td>¥44,681</td><td>24,078</td><td>13,435</td><td>22</td><td>¥2,031</td><td>初速が強い</td></tr>
+            <tr><td>5/17</td><td>¥48,666</td><td>30,602</td><td>17,733</td><td>7</td><td>¥6,952</td><td>購入が落ち込み</td></tr>
+            <tr><td>5/18</td><td>¥47,038</td><td>28,481</td><td>17,650</td><td>9</td><td>¥5,226</td><td>やや重い</td></tr>
+            <tr><td>5/19</td><td>¥51,405</td><td>32,633</td><td>20,125</td><td>14</td><td>¥3,672</td><td>フルボ酸側も発生</td></tr>
+            <tr><td>5/20</td><td>¥59,534</td><td>33,128</td><td>21,590</td><td>15</td><td>¥3,969</td><td>購入は維持</td></tr>
+            <tr><td>5/21</td><td>¥78,138</td><td>45,980</td><td>30,293</td><td>28</td><td>¥2,791</td><td>期間中ベスト</td></tr>
+            <tr><td>5/22</td><td>¥77,668</td><td>49,293</td><td>32,047</td><td>16</td><td>¥4,854</td><td>消化高、効率悪化</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>広告別ハイライト</h2>
+        <p class="note">購入が出た広告のみを抽出。量と効率の両方で、次週の配信継続・拡張・停止判断をしやすい順に並べています。</p>
+      </div>
+      <div class="panel table-wrap">
+        <table>
+          <thead>
+            <tr><th>広告</th><th>広告セット</th><th>配信</th><th>消化額</th><th>表示</th><th>購入</th><th>CPA</th><th>ROAS</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0515_02_90sample1</td><td>0506_1</td><td><span class="status on">active</span></td><td>¥94,128</td><td>55,110</td><td>32</td><td>¥2,942</td><td>0.158</td></tr>
+            <tr><td>0515_03_90sample2</td><td>0506_1</td><td><span class="status on">active</span></td><td>¥121,569</td><td>72,132</td><td>34</td><td>¥3,576</td><td>0.127</td></tr>
+            <tr><td>0515_04_UV1</td><td>0506_1</td><td><span class="status on">active</span></td><td>¥127,398</td><td>85,155</td><td>34</td><td>¥3,747</td><td>0.138</td></tr>
+            <tr><td>0517_12_UV3</td><td>0516_フルボ酸静止画</td><td><span class="status">not_delivering</span></td><td>¥34,862</td><td>17,729</td><td>13</td><td>¥2,682</td><td>0.189</td></tr>
+            <tr><td>0516_10_hurubo5</td><td>0516_フルボ酸静止画</td><td><span class="status">not_delivering</span></td><td>¥22,628</td><td>12,379</td><td>5</td><td>¥4,526</td><td>0.122</td></tr>
+            <tr><td>0517_13_UV4</td><td>0516_フルボ酸静止画</td><td><span class="status">not_delivering</span></td><td>¥14,909</td><td>5,994</td><td>2</td><td>¥7,455</td><td>0.074</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>出稿クリエイティブ識別</h2>
+        <p class="note">Meta広告名とクリエイティブ管理表の広告名を照合。ラフ画像は使わず、SSDへ整理した完成版クリエイティブのみを素材IDで紐づけています。5/23開始分は次回実績で確定するまで unverified として分けています。</p>
+      </div>
+      <div class="creative-grid">
+        <article class="creative-card">
+          <img src="assets/meta_creatives/active/0515_02_90sample1_verified.jpg" alt="0515_02_90sample1">
+          <div class="creative-body">
+            <span class="asset-id">CR-0515-02-STOCK</span>
+            <b>0515_02_90sample1</b>
+            <span>配信中 / verified / 管理表No.2 / 希少性</span>
+            <strong>CPA ¥2,942</strong>
+            <span>完成素材: active/0515_02_90sample1_verified.jpg。SSDルートのHerz-skin-CR1を統合。ラフ不使用。FV背景に使用中。</span>
+          </div>
+        </article>
+        <article class="creative-card">
+          <img src="assets/meta_creatives/active/0515_03_90sample2.png" alt="0515_03_90sample2">
+          <div class="creative-body">
+            <span class="asset-id">CR-0515-03-STOCK</span>
+            <b>0515_03_90sample2</b>
+            <span>配信中 / verified / 管理表No.3 / 希少性</span>
+            <strong>購入 34件</strong>
+            <span>完成素材: active/0515_03_90sample2.png。ラフ不使用。購入数は最多同率。</span>
+          </div>
+        </article>
+        <article class="creative-card">
+          <img src="assets/meta_creatives/active/0515_04_UV1_merged_review.jpg" alt="0515_04_UV1">
+          <div class="creative-body">
+            <span class="asset-id">CR-0515-04-UV</span>
+            <b>0515_04_UV1</b>
+            <span>配信中 / review / 管理表: 0515_05_UV1 / 紫外線_対策</span>
+            <strong>購入 34件</strong>
+            <span>完成素材候補: active/0515_04_UV1_merged_review.jpg。SSDルートのHerz-skin-CR2を統合。旧青背景の誤参照は除外。</span>
+          </div>
+        </article>
+        <article class="creative-card">
+          <img src="assets/meta_creatives/active/0523_13_carousel/1.png" alt="0523_13_カルーセル">
+          <div class="creative-body">
+            <span class="asset-id">CR-0523-13-CAROUSEL</span>
+            <b>0523_13_カルーセル</b>
+            <span>配信中 / unverified / 5月23日開始 / カルーセル</span>
+            <strong>次回確認</strong>
+            <span>完成素材候補: active/0523_13_carousel/。期間外開始のため次回実績で確定。</span>
+          </div>
+        </article>
+        <article class="creative-card">
+          <img src="assets/meta_creatives/active/0523_14_UGC1_unverified.png" alt="0523_14_UGC1">
+          <div class="creative-body">
+            <span class="asset-id">CR-0523-14-UGC1</span>
+            <b>0523_14_UGC1</b>
+            <span>配信中 / unverified / 5月23日開始 / UGC風</span>
+            <strong>次回確認</strong>
+            <span>完成素材候補: active/0523_14_UGC1_unverified.png。ラフ不使用。</span>
+          </div>
+        </article>
+        <article class="creative-card">
+          <img src="assets/meta_creatives/active/0523_14_UGC2_unverified.png" alt="0523_14_UGC2">
+          <div class="creative-body">
+            <span class="asset-id">CR-0523-14-UGC2</span>
+            <b>0523_14_UGC2</b>
+            <span>配信中 / unverified / 5月23日開始 / UGC風</span>
+            <strong>次回確認</strong>
+            <span>完成素材候補: active/0523_14_UGC2_unverified.png。ラフ不使用。</span>
+          </div>
+        </article>
+        <article class="creative-card">
+          <img src="assets/meta_creatives/stopped/0517_12_UV3_verified.png" alt="0517_12_UV3">
+          <div class="creative-body">
+            <span class="asset-id">CR-0517-12-UV</span>
+            <b>0517_12_UV3</b>
+            <span>停止中 / verified / 管理表: 0519_12_UV3 / 現在not_delivering</span>
+            <strong>CPA ¥2,682</strong>
+            <span>完成素材: stopped/0517_12_UV3_verified.png。共有画像7.pngで確定。ラフ不使用。</span>
+          </div>
+        </article>
+        <article class="creative-card">
+          <img src="assets/meta_creatives/stopped/0517_13_UV4_verified.png" alt="0517_13_UV4">
+          <div class="creative-body">
+            <span class="asset-id">CR-0517-13-UV</span>
+            <b>0517_13_UV4</b>
+            <span>停止中 / verified / 管理表: 0519_13_UV4</span>
+            <strong>CPA ¥7,455</strong>
+            <span>完成素材: stopped/0517_13_UV4_verified.png。共有画像8.pngで確定。ラフ不使用。改善候補。</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>AI分析</h2>
+        <p class="note">現時点の期間集計からの初期分析です。日次ログが入ると、曜日差・日別悪化タイミング・通知後の変化まで見られるようになります。</p>
+      </div>
+      <div class="insights">
+        <div class="insight">
+          <b>良かった点</b>
+          <p>0506_1 が全購入の83%を作り、主力として機能。特に 0515_02_90sample1 はCPA ¥2,942で効率がよく、継続配信の優先度が高いです。</p>
+        </div>
+        <div class="insight">
+          <b>注意点</b>
+          <p>0516_フルボ酸静止画は広告セット全体でCPA ¥4,099。広告単位では 0517_12_UV3 が良い一方、0517_13_UV4 はCPA ¥7,455で改善余地が大きいです。</p>
+        </div>
+        <div class="insight">
+          <b>次週アクション</b>
+          <p>0515_02 と 0517_12 を維持・増額候補にし、0517_13 は停止または訴求/素材差し替え候補。0523 UGC/カルーセルは次回レポートで初速を確認します。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>データソース</h2>
+        <p class="note">スプレッドシート側には、手動ログ・日次集計・週次集計・AI分析入力・Meta期間集計を分けて保存済みです。</p>
+      </div>
+      <div class="source">
+        <span>Google Sheets: (目黒)Herz skin 広告管理表</span>
+        <span>Meta管理画面CSV: 2026/05/15〜2026/05/22</span>
+        <span>Campaign: 目黒様_SERUM WATER INTENSE 90 SAMPLE</span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

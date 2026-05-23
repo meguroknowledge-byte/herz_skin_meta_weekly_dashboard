@@ -1,0 +1,10 @@
+._*
+.DS_Store
+
+# Large source files are stored locally on the SSD, not in GitHub.
+assets/meta_creatives/source_ai/
+*.ai
+
+# Temporary/browser/editor files
+*.tmp
+*.log
