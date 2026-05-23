@@ -7,7 +7,7 @@ This folder stores completed Meta ad creatives only. Rough images from the sprea
 | Meta ad name | File | Status | Note |
 | --- | --- | --- | --- |
 | 0515_02_90sample1 | active/0515_02_90sample1_verified.jpg | verified | CV good. Merged from SSD root Herz-skin-CR1.jpg. Used as dashboard FV background. |
-| 0515_03_90sample2 | active/0515_03_90sample2.png | verified | CV good. |
+| 0515_03_90sample2 | active/0515_03_90sample2.png | verified | CV good. Replaced with the manually confirmed screenshot creative from 2026-05-23. |
 | 0515_04_UV1 | active/0515_04_UV1_merged_review.jpg | review | CV good. Merged from SSD root Herz-skin-CR2.jpg. Spreadsheet name: 0515_05_UV1. Previous repeated blue creative reference was removed from the dashboard. |
 | 0523_13_カルーセル | active/0523_13_carousel/ | unverified | Started 2026-05-23. Candidate completed carousel set from Downloads. |
 | 0523_14_UGC1 | active/0523_14_UGC1_unverified.png | unverified | Started 2026-05-23. Candidate completed UGC asset from Downloads. |
